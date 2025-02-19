@@ -1,7 +1,6 @@
 services:
   dedup:
-    image: ghcr.io/klementng/dedup:latest
-
+    image: ghcr.io/klementng/docker-dedup:latest
     hostname: dedup
     container_name: dedup
 
