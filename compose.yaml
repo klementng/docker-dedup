@@ -1,0 +1,18 @@
+services:
+  dedup:
+    image: ghcr.io/klementng/dedup:latest
+
+    hostname: dedup
+    container_name: dedup
+
+    environment:
+      - TZ=${TZ}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - CRON_SCHEDULE=13 3 * * *
+      - CRON_COMMAND=rdfind -makehardlinks true /target
+
+    volumes:
+      - /path/to/folder:/target:rw
+
+    restart: unless-stopped
