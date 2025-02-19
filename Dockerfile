@@ -11,6 +11,6 @@ RUN apt-get update && \
 COPY entrypoint.sh /entrypoint.sh 
 
 # Ensure the script is executable
-RUN chmod +x /entrypoint.sh 
+RUN dos2unix /entrypoint.sh && chmod +x /entrypoint.sh 
 
 ENTRYPOINT [ "/entrypoint.sh" ]
